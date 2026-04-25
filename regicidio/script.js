@@ -83,22 +83,35 @@ document.addEventListener("click", () => {
 }, { once:true });
 
 
-/* =========================
-   CARD PARALLAX LIGHT
-========================= */
+// CARD PARALLAX SMOOTH
 
 const card = document.querySelector(".card");
 
 document.addEventListener("mousemove", (e) => {
 
-  let x = (window.innerWidth / 2 - e.clientX) / 35;
-  let y = (window.innerHeight / 2 - e.clientY) / 35;
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
 
-  card.style.transform =
-    `rotateY(${x}deg) rotateX(${-y}deg)`;
+  const moveX = (e.clientX - centerX) / centerX;
+  const moveY = (e.clientY - centerY) / centerY;
+
+  const rotateY = moveX * 4;   // antes estaba muy alto
+  const rotateX = moveY * -3;
+
+  card.style.transform = `
+    perspective(1000px)
+    rotateY(${rotateY}deg)
+    rotateX(${rotateX}deg)
+    translateY(-2px)
+  `;
 
 });
 
 document.addEventListener("mouseleave", () => {
-  card.style.transform = "rotateY(0deg) rotateX(0deg)";
+  card.style.transform = `
+    perspective(1000px)
+    rotateY(0deg)
+    rotateX(0deg)
+    translateY(0px)
+  `;
 });
