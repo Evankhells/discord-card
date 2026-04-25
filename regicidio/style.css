@@ -147,19 +147,35 @@ body{
 .btn{
   text-decoration:none;
   color:white;
-  padding:16px;
+  padding:16px 22px;
   border-radius:18px;
   background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.09);
+  border:1px solid rgba(255,180,216,.12);
   transition:.25s;
   backdrop-filter:blur(10px);
-  letter-spacing:2px;
+  letter-spacing:4px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.btn i{
+  color:#ff9fd1;
+  font-size:22px;
+  min-width:24px;
+}
+
+.btn span{
+  flex:1;
+  text-align:center;
+  font-size:.95rem;
 }
 
 .btn:hover{
-  transform:translateY(-2px);
+  transform:translateY(-2px) scale(1.01);
   background:rgba(255,180,216,.08);
-  box-shadow:0 0 18px rgba(255,180,216,.12);
+  box-shadow:0 0 18px rgba(255,180,216,.14);
 }
 
 /* SPOTIFY */
