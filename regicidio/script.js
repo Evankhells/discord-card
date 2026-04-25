@@ -115,3 +115,13 @@ document.addEventListener("mouseleave", () => {
     translateY(0px)
   `;
 });
+
+// VOLUME CONTROL
+
+const slider = document.getElementById("volumeSlider");
+
+audio.volume = 0.25;
+
+slider.addEventListener("input", () => {
+  audio.volume = slider.value / 100;
+});
